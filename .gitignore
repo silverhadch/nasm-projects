@@ -1,12 +1,12 @@
-# --- Ignore everything inside src ---
+# Ignore everything inside src
 src/*
+src/**/*.o
+src/**/*
 
-# --- But allow subdirectories so we can reach nested .asm files ---
+# But allow subdirectories so Git can see inside them
+!src/*/
 !src/*/*/
 
-# --- Allow .asm source files ---
-!src/*/*/*.asm
-
-# --- Allow Makefiles inside project directories ---
-!src/*/*/Makefile
-
+# Allow .asm and Makefiles in subdirectories
+!src/*/*.asm
+!src/*/Makefile
