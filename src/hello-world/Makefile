@@ -13,5 +13,8 @@ all: $(BIN)
 %: %.o
 	$(LD) -m elf_i386 $< -o $@
 
+run: $(BIN)
+	./$(BIN)
+
 clean:
 	rm -f $(OBJ) $(BIN)
