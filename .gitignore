@@ -1,0 +1,12 @@
+# --- Ignore everything inside src ---
+src/*
+
+# --- But allow subdirectories so we can reach nested .asm files ---
+!src/**/
+
+# --- Allow .asm source files ---
+!src/**/*.asm
+
+# --- Allow Makefiles inside project directories ---
+!src/**/Makefile
+
