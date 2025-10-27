@@ -10,8 +10,10 @@ section .bss
 
 ; text section aka programm section
 section .text
+; program entry point
 _start:
-    ; Read from stdin
+    ; Read from stdin 
+    ; Number of bytes read will be in eax after syscall
     mov eax, 0x03           ; Move sys_read (0x03) into eax
     mov ebx, 0              ; Move fd of stdin (0) into ebx
     mov ecx, buffer         ; Move the adresse of the buffer into ecx
@@ -30,3 +32,4 @@ _start:
     int 0x80        ; Trigger a syscall via interupt 0x80
 
 ; no data section needed
+; end of program
