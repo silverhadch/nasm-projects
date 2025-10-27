@@ -19,10 +19,10 @@ _start:
     int 0x80                ; Trigger a syscall via interupt 0x80
 
     ; Write to stdout
+    mov edx, eax            ; Move number of bytes read into edx
     mov eax, 0x04           ; Move sys_write (0x04) into eax
     mov ebx, 1              ; Move fd of stdout (1) into ebx
     mov ecx, buffer         ; Move the adresse of the buffer into ecx
-    mov edx, buffer_length  ; Move the length of the buffer into edx
     int 0x80                ; Trigger a syscall via interupt 0x80
 
     mov eax, 0x01   ; Move sys_exit (0x01) into eax
