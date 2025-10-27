@@ -26,7 +26,8 @@ _start:
     mov ebx, 1              ; Move fd of stdout (1) into ebx
     mov ecx, buffer         ; Move the adresse of the buffer into ecx
     int 0x80                ; Trigger a syscall via interupt 0x80
-
+    
+    ; Exit program
     mov eax, 0x01   ; Move sys_exit (0x01) into eax
     mov ebx, 0      ; Move exit code (0) into ebx
     int 0x80        ; Trigger a syscall via interupt 0x80
