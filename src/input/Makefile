@@ -1,0 +1,20 @@
+ASM = nasm
+LD  = ld
+SRC = input.asm
+OBJ = $(SRC:.asm=.o)
+BIN = $(SRC:.asm=)
+
+all: $(BIN)
+	./$(BIN)
+
+%.o: %.asm
+	$(ASM) -f elf32 $< -o $@
+
+%: %.o
+	$(LD) -m elf_i386 $< -o $@
+
+run: $(BIN)
+	./$(BIN)
+
+clean:
+	rm -f $(OBJ) $(BIN)
